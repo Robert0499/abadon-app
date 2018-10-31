@@ -1,0 +1,36 @@
+<nav class="navbar navbar-light text-white">
+	<a class="navbar-brand">
+		<h3>ABADON</h3>
+	</a>
+	<ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+			<a class="nav-link  text-white" ng-click="inst()" style="cursor: pointer;">Instructor
+			</a>
+		</li>
+	</ul>
+	<div class="d-md-block">
+		<form class="form-inline my-2 my-lg-0">
+			<i class="fa fa-user fa-2x  mr-sm-2" ng-click="open()"></i>
+			<i class="fa fa-power-off fa-2x my-2 my-sm-0 text-danger" ng-click="cerrar()"></i>
+		</form>
+	</div>
+</nav>
+<div class="container">
+	<div class="row">
+		<div class="col-12 mt-5">
+			<div class="card">
+				<div class="card-body">
+					<div class="d-flex justify-content-end">
+						<h5>Inasistencias
+							<span class="badge badge-info">{{inasistencias}}</span>
+						</h5>
+					</div>
+					<canvas id="myChart" width="400" height="150"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container d-flex justify-content-end mt-2">
+	<button class="btn btn-success ml-1" ng-click="download()">Exportar a Excel</button>
+</div>

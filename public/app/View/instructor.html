@@ -1,0 +1,180 @@
+<nav class="navbar navbar-light text-white">
+	<a class="navbar-brand">
+		<h3>ABADON</h3>
+	</a>
+	<!-- <ul class="navbar-nav mr-auto">
+		<li class="nav-item active">
+			<a class="nav-link  text-white" ng-click="reportes()" style="cursor: pointer;">Reportes
+			</a>
+		</li>
+	</ul> -->
+	<div class="d-md-block">
+		<form class="form-inline my-2 my-lg-0">
+			<i class="fa fa-power-off fa-2x my-2 my-sm-0 text-danger d-none d-sm-block" ng-click="cerrar()"></i>
+			<div class="btn-group dropleft">
+				<button class="navbar-toggler d-block d-sm-none text-white dropdown-toggle" data-toggle="dropdown" type="button">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="dropdown-menu">
+					<button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalFicha">Reportes</button>
+					<button class="dropdown-item" type="button" ng-click="cerrar()">Cerrar Sesión</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</nav>
+<!-- modal -->
+<div class="modal fade text-center" id="modalFicha">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title">Nombre instructor</h3>
+				<button type="button" class="close" data-dismiss="modal">
+					<span>&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<span>Ficha</span>
+				<br>
+				<span>Pograma</span>
+				<br>
+				<h3>Descripcion</h3>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad doloribus itaque neque consequatur. Eos tempore obcaecati
+					voluptas harum magnam, officia facilis pariatur! Vitae, doloremque. Ad qui ut animi nihil laboriosam?</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- fin modal -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12 p-0 ">
+			<div class="card  left">
+				<div class="card-body text-white">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+
+								<tr>
+									<th scope="col">Nombre</th>
+									<th scope="col">Ficha</th>
+									<th scope="col">Descripción</th>
+									<th scope="col">Asistencia</th>
+									<th scope="col">Reportes</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="data in array">
+									<th scope="row">
+										{{data.nombre}}
+									</th>
+									<td>{{data.numero}}</td>
+									<td>{{data.descripcion}}</td>
+									<td>
+										<i class="fa fa-calendar-check-o fa-2x" ng-click="asisten(data.id)"></i>
+									</td>
+									<td>
+										<i class="fa fa-folder-o  fa-2x" ng-click="reportes(data.id)"></i>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<div class="container  w-100 d-flex justify-content-end mt-2">
+						<button class="btn btn text-white confir" ng-click="open()">Agregar Ficha</button>
+						<button class="btn btn  ml-1" ng-click="download()">Descargar formato</button>
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="show1">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Agregar Fichas</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form ng-submit="addFicha()" id="form1">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Nombre</label>
+							<input type="text" class="form-control" placeholder="Nombre de la ficha" ng-model="user.nombre_ficha" required>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Ficha</label>
+							<input type="number" class="form-control" placeholder="Numero de la ficha" ng-model="user.numero_ficha" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Descripcion</label>
+							<textarea class="form-control" ng-model="user.descripcion" max-rows="3" required placeholder="descripcion"></textarea>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Importar aprendices</label>
+							<input type="file" class="button form-control" ngf-select ng-model="user.formato" name="formato" ngf-pattern="'.xls,.xlsx'"
+							 ngf-accept="'.xls, .xlsx'" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary">Agregar</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="show2">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Asistencia</h5>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-row">
+
+						<div class="form-group col-md-12">
+							<label>Codigo</label>
+							<input type="text" class="form-control" disabled required value="{{codigo}}">
+						</div>
+						<div class="form-group col-md-12">
+							<label>Nombre</label>
+							<input type="text" class="form-control" disabled value="{{usuario.nombre}}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Correo</label>
+							<input type="email" class="form-control" disabled value="{{usuario.correo}}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Numero documento</label>
+							<input type="text" class="form-control" disabled value="{{usuario.numero_documento}}" required>
+						</div>
+						<div class="form-group col-md-12">
+							<label>Telefono</label>
+							<input type="text" class="form-control" disabled value="{{usuario.telefono}}" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" ng-click="asistio(usuario.id, usuario.id_ficha)" id="asistio">Asistió</button>
+						<button type="submit" class="btn btn-danger" ng-click="noasistio(usuario.id. usuario.id_ficha)" id="noasistio">No Asistió</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>

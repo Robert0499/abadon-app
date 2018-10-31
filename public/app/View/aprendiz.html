@@ -1,0 +1,154 @@
+<nav class="navbar navbar-light text-white">
+	<a class="navbar-brand">
+		<h3>ABADON</h3>
+	</a>
+	<div class="d-md-block">
+		<form class="form-inline my-2 my-lg-0">
+			<i class="fa fa-power-off fa-2x my-2 my-sm-0 text-danger d-none d-sm-block" ng-click="cerrar()"></i>
+			<div class="btn-group dropleft">
+				<button class="navbar-toggler d-block d-sm-none text-white dropdown-toggle" data-toggle="dropdown" type="button">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="dropdown-menu">
+					<button class="dropdown-item" type="button" data-toggle="modal" data-target="#modalFicha">Ficha</button>
+					<button class="dropdown-item" type="button" ng-click="cerrar()">Cerrar Sesión</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</nav>
+<!-- modal -->
+<div class="modal fade text-center" id="modalFicha">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title">Formacion</h3>
+				<button type="button" class="close" data-dismiss="modal">
+					<span>&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<span>Ficha</span>
+				<br>
+				<span>Pograma</span>
+				<br>
+				<h3>Descripcion</h3>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad doloribus itaque neque consequatur. Eos tempore obcaecati
+					voluptas harum magnam, officia facilis pariatur! Vitae, doloremque. Ad qui ut animi nihil laboriosam?</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- fin modal -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12 p-0 col-sm-8">
+			<div class="card  left">
+				<div class="card-body">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+
+								<tr>
+									<th scope="col">Fecha</th>
+									<th scope="col">Nombre</th>
+									<th scope="col">Ficha</th>
+									<th scope="col">Programa</th>
+									<th scope="col">Asistió</th>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">
+										10/04/2017
+									</th>
+									<td>Sebastian</td>
+									<td>1364760</td>
+									<td>ADSI</td>
+									<td>
+										SI
+									</td>
+
+								</tr>
+								<tr>
+									<th scope="row">
+										10/04/2017
+									</th>
+									<td>Sebastian</td>
+									<td>1364760</td>
+									<td>ADSI</td>
+									<td>
+										SI
+									</td>
+
+								</tr>
+								<tr>
+									<th scope="row">
+										10/04/2017
+									</th>
+									<td>Sebastian</td>
+									<td>1364760</td>
+									<td>ADSI</td>
+									<td>
+										SI
+									</td>
+
+								</tr>
+							</tbody>
+						</table>
+
+					</div>
+					<div class="container  w-100 d-flex justify-content-end mt-2">
+						<button class="btn btn text-white confir" ng-click="open()">Confirmar asistencia</button>
+					</div>
+
+				</div>
+
+
+			</div>
+
+		</div>
+		<div class="col-4 p-0 d-none d-sm-block">
+			<div class="card right text-center">
+				<h3 class="card-title mt-5">Formación</h3>
+				<div class="card-body">
+					<span>Ficha</span>
+					<br>
+					<span>Pograma</span>
+					<br>
+					<h3>Descripcion</h3>
+					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad doloribus itaque neque consequatur. Eos tempore obcaecati
+						voluptas harum magnam, officia facilis pariatur! Vitae, doloremque. Ad qui ut animi nihil laboriosam?</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="show1">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Confirmar</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form ng-submit="confirmar()">
+					<div class="form-row">
+						<div class="form-group col-md-12">
+							<label>Codigo</label>
+							<input type="text" class="form-control" placeholder="Introduzca el codigo de verificación" required ng-model="aprendiz.codigo">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+						<button type="submit" class="btn btn-primary">Validar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

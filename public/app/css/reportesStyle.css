@@ -1,0 +1,14 @@
+body {
+  overflow: hidden;
+}
+nav {
+  background: rgb(19, 94, 94);
+}
+.left,
+.right {
+  height: calc(100vh - 64px);
+  border-radius: 0%;
+}
+.confir {
+  background: rgb(19, 94, 94);
+}
